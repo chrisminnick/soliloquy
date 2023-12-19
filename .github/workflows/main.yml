@@ -1,8 +1,6 @@
-name: code climate
-run-name: send code coverage to code climate
 on: [push]
 jobs:
-  check-bats-version:
+  code_climate:
     runs-on: ubuntu-latest
     steps:
       - name: Test & publish code coverage
@@ -12,4 +10,5 @@ jobs:
         with:
           coverageCommand: npm run test
           coverageLocations: |
-            coverage/lcov.info:lcov
+            ${{github.workspace}}/client/coverage/lcov.info:lcov
+            ${{github.workspace}}/server/coverage/lcov.info:lcov
