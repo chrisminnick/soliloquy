@@ -1,10 +1,15 @@
 on: [push]
 jobs:
-  code_climate:
+  publish_code_coverage:
+    name: Publish Code Coverage to CodeClimate
     runs-on: ubuntu-latest
     steps:
-      - name: Code Climate Coverage Action
-        uses: paambaati/codeclimate-action@v5.0.0    
-        env:
-          CC_TEST_REPORTER_ID: 6ddd235147adf42743b74c4ab87fbfa3fca7f0c779b634ed94dcff340eea6afd
-          prefix: "/home/runner/work/soliloquy/client"
+    - name: Publish code coverage
+      uses: paambaati/codeclimate-action@v3.0.0
+      env:
+        CC_TEST_REPORTER_ID: 6ddd235147adf42743b74c4ab87fbfa3fca7f0c779b634ed94dcff340eea6afd
+      with:
+        debug: true
+        coverageLocations: |
+          ${{github.workspace}}/client/coverage/lcov.info:lcov
+          ${{github.workspace}}/server/coverage/lcov.info:lcov
