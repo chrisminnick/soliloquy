@@ -1,9 +1,15 @@
-steps:
-  - name: Test & publish code coverage
-    uses: paambaati/codeclimate-action@v5.0.0
-    env:
-      CC_TEST_REPORTER_ID: 6ddd235147adf42743b74c4ab87fbfa3fca7f0c779b634ed94dcff340eea6afd
-    with:
-      coverageCommand: npm run test
-      coverageLocations: |
-        ${{github.workspace}}/coverage/lcov.info:lcov
+name: code climate
+run-name: send code coverage to code climate
+on: [push]
+jobs:
+  check-bats-version:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Test & publish code coverage
+        uses: paambaati/codeclimate-action@v5.0.0
+        env:
+          CC_TEST_REPORTER_ID: 6ddd235147adf42743b74c4ab87fbfa3fca7f0c779b634ed94dcff340eea6afd
+        with:
+          coverageCommand: npm run test
+          coverageLocations: |
+            ${{github.workspace}}/coverage/lcov.info:lcov
