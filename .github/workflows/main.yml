@@ -12,4 +12,4 @@ jobs:
         with:
           coverageCommand: npm run test
           coverageLocations: |
-            ${{github.workspace}}/coverage/lcov.info:lcov
+            coverage/lcov.info:lcov
