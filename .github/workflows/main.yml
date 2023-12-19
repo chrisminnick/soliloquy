@@ -11,4 +11,4 @@ jobs:
       with:
         debug: true
         coverageLocations: |
-          /home/runner/work/soliloquy/client/coverage/lcov.info:lcov
+          ${{github.workspace}}/client/coverage/lcov.info:lcov
