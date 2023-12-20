@@ -11,4 +11,4 @@ jobs:
       with:
         debug: true
         coverageLocations: |
-          ${{github.workspace}}/client/coverage/clover.xml:clover
+          ${{github.workspace}}/client
