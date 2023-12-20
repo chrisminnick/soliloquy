@@ -4,8 +4,8 @@ jobs:
     name: Publish Code Coverage to CodeClimate
     runs-on: ubuntu-latest
     steps:
-    - name: Publish code coverage
-      uses: paambaati/codeclimate-action@v4.0.0
+    - name: Code Climate Coverage Action
+      uses: paambaati/codeclimate-action@v3.2.0
       env:
         CC_TEST_REPORTER_ID: 6ddd235147adf42743b74c4ab87fbfa3fca7f0c779b634ed94dcff340eea6afd
       with:
