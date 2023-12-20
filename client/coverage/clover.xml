@@ -1,25 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1703029512211" clover="3.2.0">
-  <project timestamp="1703029512211" name="All files">
-    <metrics statements="163" coveredstatements="21" conditionals="24" coveredconditionals="0" methods="55" coveredmethods="3" elements="242" coveredelements="24" complexity="0" loc="163" ncloc="163" packages="9" files="17" classes="17"/>
+<coverage generated="1703083041753" clover="3.2.0">
+  <project timestamp="1703083041753" name="All files">
+    <metrics statements="155" coveredstatements="21" conditionals="20" coveredconditionals="0" methods="53" coveredmethods="3" elements="228" coveredelements="24" complexity="0" loc="155" ncloc="155" packages="9" files="16" classes="16"/>
     <package name="src">
-      <metrics statements="11" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
       <file name="index.js" path="/Users/chrisminnick/code/src/github.com/chrisminnick/soliloquy/client/src/index.js">
         <metrics statements="3" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
         <line num="7" count="0" type="stmt"/>
         <line num="8" count="0" type="stmt"/>
         <line num="17" count="0" type="stmt"/>
-      </file>
-      <file name="reportWebVitals.js" path="/Users/chrisminnick/code/src/github.com/chrisminnick/soliloquy/client/src/reportWebVitals.js">
-        <metrics statements="8" coveredstatements="0" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="0"/>
-        <line num="1" count="0" type="stmt"/>
-        <line num="2" count="0" type="cond" truecount="0" falsecount="4"/>
-        <line num="3" count="0" type="stmt"/>
-        <line num="4" count="0" type="stmt"/>
-        <line num="5" count="0" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
       </file>
     </package>
     <package name="src.api">
