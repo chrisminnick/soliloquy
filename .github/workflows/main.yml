@@ -10,5 +10,4 @@ jobs:
         CC_TEST_REPORTER_ID: 6ddd235147adf42743b74c4ab87fbfa3fca7f0c779b634ed94dcff340eea6afd
       with:
         debug: true
-        coverageLocations: |
-          ${{github.workspace}}/client
+        coverageLocations: "${{github.workspace}}/client/coverage/clover.xml:clover"
