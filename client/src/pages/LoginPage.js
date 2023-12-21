@@ -1,10 +1,8 @@
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import useLogin from '../hooks/useLogin';
 
 function LoginPage() {
-  const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { handleSubmit, loginErr, isLoading } = useLogin(email, password);
