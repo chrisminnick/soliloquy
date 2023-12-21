@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function useHandleSignup() {
+export default function useSignup() {
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
   const [signupMessage, setSignupMessage] = useState(null);
