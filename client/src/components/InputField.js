@@ -4,7 +4,7 @@ const InputField = ({ label, type = 'text', value, onChange, id }) => (
     <input
       type={type}
       id={id ? id : undefined}
-      value={value ? value : undefined}
+      {...(value !== undefined && { value })}
       onChange={onChange ? onChange : undefined}
       className="form-control"
       required

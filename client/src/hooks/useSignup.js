@@ -1,7 +1,9 @@
 import { useState } from 'react';
+import { api } from '../api/api';
 
 export default function useSignup() {
   const [isLoading, setIsLoading] = useState(false);
+
   const [error, setError] = useState(null);
   const [signupMessage, setSignupMessage] = useState(null);
 
@@ -10,26 +12,15 @@ export default function useSignup() {
     setError(null);
 
     try {
-      const response = await fetch('http://localhost:8081/api/user/signup', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          displayName,
-          email,
-          password,
-        }),
+      const response = await api.signup('user/signup', {
+        displayName,
+        email,
+        password,
       });
 
-      const data = await response.json();
-
-      if (!response.ok) {
-        throw new Error(data.message || 'Could not sign up.');
-      }
-      setSignupMessage(data.message);
+      setSignupMessage(response.message);
       setIsLoading(false);
-      return data;
+      return response;
     } catch (err) {
       setIsLoading(false);
       setError(err.message);

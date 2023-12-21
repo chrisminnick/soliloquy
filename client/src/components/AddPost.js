@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { addPost, postPost } from '../features/posts/postsSlice';
 
 function AddPost(props) {
-  const { token } = useSelector((state) => state.auth);
+  const { user, token } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   const [postText, setPostText] = useState('');
@@ -11,9 +11,11 @@ function AddPost(props) {
   async function submitPost() {
     try {
       setPostText('');
-      const postPostAction = await dispatch(postPost('test', token));
+      const postPostAction = await dispatch(
+        postPost({ body: { text: postText, user: user }, token })
+      );
 
-      dispatch(addPost({ _id: 121, text: postPostAction.payload }));
+      dispatch(addPost({ _id: 121, text: postPostAction.payload.post.text }));
     } catch (e) {
       console.log(e);
     }

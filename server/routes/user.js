@@ -8,9 +8,9 @@ import User from '../models/user.js';
 
 const router = express.Router();
 
-function generateAccessToken(username) {
-  return jwt.sign(username, process.env.ACCESS_TOKEN_SECRET, {
-    expiresIn: '1800s',
+function generateAccessToken({ username }) {
+  return jwt.sign({ username }, process.env.ACCESS_TOKEN_SECRET, {
+    expiresIn: '18000s',
   });
 }
 
@@ -52,7 +52,7 @@ router.post('/login', async (req, res) => {
           message: 'Incorrect password',
         });
       } else {
-        const accessToken = generateAccessToken({ user: req.body.email });
+        const accessToken = generateAccessToken({ username: req.body.email });
 
         res.status(200).json({
           accessToken: accessToken,

@@ -9,9 +9,13 @@ const initialState = {
   isLoading: false,
   error: null,
 };
+export const signup = createAsyncThunk('auth/signup', async (body) => {
+  const response = await api.signup('user/signup', body);
+  return response;
+});
 
 export const login = createAsyncThunk('auth/login', async (credentials) => {
-  const response = await api.login(credentials);
+  const response = await api.login('user/login', credentials);
   return response;
 });
 

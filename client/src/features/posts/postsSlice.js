@@ -25,10 +25,12 @@ export const getPost = createAsyncThunk(
 
 export const postPost = createAsyncThunk(
   'posts/postPost',
-  async (body, token) => {
-    console.log(`body: ${JSON.stringify(body)} token: ${token}`);
-    const response = await api.post('posts', token, body);
-    return response.json();
+  async ({ body, token }) => {
+    const response = await api.post('posts', token, {
+      user: body.user,
+      text: body.text,
+    });
+    return response;
   }
 );
 

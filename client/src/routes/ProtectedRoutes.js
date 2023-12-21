@@ -2,8 +2,8 @@ import { Navigate, Outlet } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 export const ProtectedRoute = () => {
-  const { user } = useSelector((state) => state.auth);
-
+  const user = useSelector((state) => state.auth.user);
+  console.log(user);
   // Check if the user is authenticated
   if (!user) {
     // If not authenticated, redirect to the login page
