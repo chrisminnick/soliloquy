@@ -1,28 +1,13 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { login, setToken, setUser } from '../features/auth/authSlice';
-import { useNavigate, Link } from 'react-router-dom';
-import { throttle } from 'lodash';
+import { Link } from 'react-router-dom';
+import useLogin from '../hooks/useLogin';
 
 function LoginPage() {
   const dispatch = useDispatch();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loginErr, setLoginErr] = useState(null);
-  const navigate = useNavigate();
-
-  const handleSubmit = throttle(async (e) => {
-    e.preventDefault();
-    try {
-      const data = await dispatch(login({ email, password }));
-      localStorage.setItem('token', JSON.stringify(data.payload.accessToken));
-      dispatch(setToken(data.payload.accessToken));
-      dispatch(setUser(data.payload.userId));
-      navigate('/posts', { replace: true });
-    } catch (err) {
-      setLoginErr(err.message);
-    }
-  }, 2000);
+  const { handleSubmit, loginErr, isLoading } = useLogin(email, password);
 
   return (
     <div className="container">
