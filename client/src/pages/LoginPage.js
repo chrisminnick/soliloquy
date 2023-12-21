@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import useLogin from '../hooks/useLogin';
+import InputField from '../components/InputField';
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -22,28 +23,20 @@ function LoginPage() {
                 </div>
               )}
               <form onSubmit={handleSubmit}>
-                <div className="form-group mb-3">
-                  <label>Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    className="form-control"
-                    required
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label>Password</label>
-                  <input
-                    type="password"
-                    id="password"
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    className="form-control"
-                    required
-                  />
-                </div>
+                <InputField
+                  label="Email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  id="email"
+                />
+                <InputField
+                  label="Password"
+                  type="password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  id="password"
+                />
                 <div className="form-group mb-3">
                   <button className="btn btn-primary">Login</button>
                   <Link to="/signup" className="btn m-3">

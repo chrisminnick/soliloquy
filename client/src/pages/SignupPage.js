@@ -1,6 +1,7 @@
 import useNavigateIfTokenExists from '../hooks/useNavigateIfTokenExists';
 import useSignup from '../hooks/useSignup';
 import { Link } from 'react-router-dom';
+import InputField from '../components/InputField';
 
 function SignupPage() {
   const { handleSignup, isLoading, signupMessage, error } = useSignup();
@@ -34,32 +35,9 @@ function SignupPage() {
                 </div>
               )}
               <form onSubmit={handleSubmit}>
-                <div className="form-group mb-3">
-                  <label>Email</label>
-                  <input
-                    required
-                    type="email"
-                    id="email"
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label>Display Name</label>
-                  <input
-                    type="text"
-                    id="displayName"
-                    className="form-control"
-                  />
-                </div>
-                <div className="form-group mb-3">
-                  <label>Password</label>
-                  <input
-                    required
-                    type="password"
-                    id="password"
-                    className="form-control"
-                  />
-                </div>
+                <InputField label="Email" type="email" id="email" />
+                <InputField label="Display Name" type="text" id="displayName" />
+                <InputField label="Password" type="password" id="password" />
                 <div className="form-group mb-3">
                   <button className="btn btn-primary">Sign Up</button>
                 </div>
