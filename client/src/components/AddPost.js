@@ -11,11 +11,8 @@ function AddPost(props) {
   async function submitPost() {
     try {
       setPostText('');
-      const postPostAction = await dispatch(
-        postPost({ body: { text: postText, user: user }, token })
-      );
-
-      dispatch(addPost({ _id: 121, text: postPostAction.payload.post.text }));
+      await dispatch(postPost({ body: { text: postText, user: user }, token }));
+      dispatch(addPost({ _id: 121, text: postText }));
     } catch (e) {
       console.log(e);
     }
